@@ -27,38 +27,29 @@ namespace ContosoWeb.Departments
                 txtDeptName.Text = department.Name;
                 txtDeptBudget.Text = department.Budget.ToString();
                 txtDeptStartDate.Text = department.StartDate.ToString("mm/dd/yyyy");
-                //dropDownInstructor.DataSource = ;
-                //dropDownInstructor.DataTextField = "";
-                //dropDownInstructor.DataValueField = "";
-                //dropDownInstructor.SelectedValue = "";
+
+                string cs = ConfigurationManager.ConnectionStrings["ContosoDbContext"].ConnectionString;
+                SqlConnection connection = new SqlConnection(cs);
+                SqlCommand command = new SqlCommand("Select p.Id, p.FirstName + ' ' + p.LastName As 'FullName' From People p INNER JOIN Instructors i on p.Id = i.Id", connection);
+                connection.Open();
+                SqlDataAdapter sqlAdapter = new SqlDataAdapter(command);
+          
+                
+                DataSet ds = new DataSet();
+                sqlAdapter.Fill(ds);
+                
+                ddlInstructor.DataSource = ds;
+                ddlInstructor.DataTextField = "FullName";
+                ddlInstructor.DataValueField = "Id";
+                ddlInstructor.SelectedValue = department.InstructorId.ToString();
+                ddlInstructor.DataBind();
+                connection.Dispose();
+
                 //txtInstrutorId.Text = department.InstructorId.ToString();
-                //ddlInstructor.select.Text = department.InstructorId.ToString();
-
                 txtRowVer.Text = department.RowVersion.ToString();
-
-                txtCreatedDate.Text = department.CreatedDate.ToString();
-                txtCreatedBy.Text = department.CreatedBy.ToString();
-                txtUpdatedDate.Text = department.UpdatedDate.ToString();
+                txtUpdatedDate.Text = department.UpdatedDate.HasValue ? department.UpdatedDate.ToString("mm/dd/yyyy") : DBNull.Value.ToString();
                 txtUpdatedBy.Text = department.UpdatedBy.ToString();
 
-                // labelRowVersion.Text = department.RowVersion.ToString();
-                // labelCreatedDate.Text = department.CreatedDate.ToString();
-                // labelCreatedBy.Text = department.CreatedBy.ToString();
-                // labelUpdatedDate.Text = department.UpdatedDate.ToString();
-                // labelUpdatedBy.Text = department.UpdatedBy.ToString();
-
-                //string cs = ConfigurationManager.ConnectionStrings["ContosoDbContext"].ConnectionString;
-                //SqlConnection connection = new SqlConnection(cs);
-                //SqlCommand command = new SqlCommand("Select p.Id, p.FirstName + ' ' + p.LastName As 'FullName' From People p INNER JOIN Instructors i on p.Id = i.Id", connection);
-                //connection.Open();
-                //SqlDataAdapter sqlAdapter = new SqlDataAdapter(command);
-                //DataSet ds = new DataSet();
-                //sqlAdapter.Fill(ds);
-                //ddlInstructor.DataSource = ds;
-                //ddlInstructor.DataTextField = "FullName";
-                //ddlInstructor.DataValueField = "Id";
-                //ddlInstructor.DataBind();
-                //connection.Dispose();
             }
         }
 
@@ -73,12 +64,17 @@ namespace ContosoWeb.Departments
                 Budget = Convert.ToInt32(txtDeptBudget.Text),
                 StartDate = Convert.ToDateTime(txtDeptStartDate.Text),
                 //InstructorId = Convert.ToInt32(txtInstrutorId.Text),
-                //InstructorId = Convert.ToInt32(txtInstrutorId.Text),
+                InstructorId = Convert.ToInt32(ddlInstructor.Text),
                 RowVersion = 2,
                 UpdatedDate = DateTime.Now,
                 UpdatedBy = 1,
             };
             deptService.UpdateDepartment(department);
+        }
+
+        protected void btnCancelDeptEdit_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("DepartmentList.aspx");
         }
     }
 }

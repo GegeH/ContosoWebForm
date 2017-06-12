@@ -12,7 +12,7 @@ namespace Contoso.Models
         public string Name { get; set; }
         public decimal Budget { get; set; }
         public DateTime StartDate { get; set; }
-        public int? InstructorId { get; set; }
+        public int InstructorId { get; set; }
         public int RowVersion { get; set; }
         public DateTime? CreatedDate { get; set; }
         public int? CreatedBy { get; set; }

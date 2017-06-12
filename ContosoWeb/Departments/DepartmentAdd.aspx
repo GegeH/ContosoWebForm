@@ -11,16 +11,19 @@
                 <div class="form-group">
                     <label for="txtDeptName">Department Name: </label>
                     <asp:TextBox ID="txtDeptName" CssClass="form-control" runat="server" />
+                    <asp:RequiredFieldValidator ErrorMessage="Department Name cannot be empty!" ControlToValidate="txtDeptName" runat="server" />
                 </div>
 
                 <div class="form-group">
                     <label for="txtDeptBudget">Department Budget: </label>
                     <asp:TextBox ID="txtDeptBudget" CssClass="form-control" runat="server" />
+                    <asp:RequiredFieldValidator ErrorMessage="Department Budget cannot be empty!" ControlToValidate="txtDeptBudget" runat="server" />
                 </div>
 
                 <div class="form-group">
                     <label for="txtDeptStartDate">Department StartDate: </label>
                     <asp:TextBox ID="txtDeptStartDate" CssClass="form-control" runat="server" />
+                    <asp:RequiredFieldValidator ErrorMessage="The Starting Date of Department cannot be empty!" ControlToValidate="txtDeptStartDate" runat="server" />
                 </div>
 
                 <%--<div class="form-group">
@@ -31,6 +34,7 @@
                 <div class="form-group">
                     <label for="ddlInstructor">Try Dropdown List Department Instructor: </label>
                     <asp:DropDownList ID="ddlInstructor" CssClass="form-control" runat="server"></asp:DropDownList>
+                    <asp:RequiredFieldValidator ErrorMessage="Instructor cannot be empty!" ControlToValidate="ddlInstructor" runat="server" />
                 </div>
 
                 <%-- Save Button --%>
