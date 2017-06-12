@@ -1,0 +1,4 @@
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\ContosoSample.ConsoleApplication\ContosoUtility\bin\Debug\ContosoUtility.dll
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\ContosoSample.ConsoleApplication\ContosoUtility\bin\Debug\ContosoUtility.pdb
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\ContosoSample.ConsoleApplication\ContosoUtility\obj\Debug\ContosoUtility.dll
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\ContosoSample.ConsoleApplication\ContosoUtility\obj\Debug\ContosoUtility.pdb

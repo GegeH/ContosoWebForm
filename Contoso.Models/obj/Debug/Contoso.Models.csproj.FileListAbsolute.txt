@@ -1,0 +1,5 @@
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\ContosoSample.ConsoleApplication\Contoso.Models\bin\Debug\ContosoModels.dll
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\ContosoSample.ConsoleApplication\Contoso.Models\bin\Debug\ContosoModels.pdb
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\ContosoSample.ConsoleApplication\Contoso.Models\obj\Debug\Contoso.Models.csprojResolveAssemblyReference.cache
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\ContosoSample.ConsoleApplication\Contoso.Models\obj\Debug\ContosoModels.dll
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\ContosoSample.ConsoleApplication\Contoso.Models\obj\Debug\ContosoModels.pdb
