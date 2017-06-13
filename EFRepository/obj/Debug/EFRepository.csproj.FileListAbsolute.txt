@@ -1,0 +1,10 @@
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\EFRepository\bin\Debug\EFRepository.dll.config
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\EFRepository\bin\Debug\EFRepository.dll
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\EFRepository\bin\Debug\EFRepository.pdb
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\EFRepository\bin\Debug\EntityFramework.dll
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\EFRepository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\EFRepository\bin\Debug\EntityFramework.xml
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\EFRepository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\EFRepository\obj\Debug\EFRepository.csprojResolveAssemblyReference.cache
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\EFRepository\obj\Debug\EFRepository.dll
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\EFRepository\obj\Debug\EFRepository.pdb

@@ -16,3 +16,7 @@ C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\Con
 C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\ContosoService\obj\Debug\ContosoService.csprojResolveAssemblyReference.cache
 C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\ContosoService\obj\Debug\ContosoService.dll
 C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\ContosoService\obj\Debug\ContosoService.pdb
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\ContosoService\bin\Debug\EFRepository.dll
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\ContosoService\bin\Debug\EntityFramework.dll
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\ContosoService\bin\Debug\EFRepository.pdb
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\ContosoService\bin\Debug\EntityFramework.xml

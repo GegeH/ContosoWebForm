@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Contoso.Models;
 using ContosoRepository;
+// using EFRepository;
 
 namespace ContosoService
 {
@@ -15,7 +16,7 @@ namespace ContosoService
         {
             deptRepo.AddDepartment(dept);
         }
-        
+
         public List<Department> GetAllDepartments()
         {
             var department = deptRepo.GetAllDepartments();

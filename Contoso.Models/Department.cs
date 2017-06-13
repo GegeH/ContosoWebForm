@@ -14,9 +14,9 @@ namespace Contoso.Models
         public DateTime StartDate { get; set; }
         public int InstructorId { get; set; }
         public int RowVersion { get; set; }
-        public DateTime? CreatedDate { get; set; }
-        public int? CreatedBy { get; set; }
-        public DateTime? UpdatedDate { get; set; }
-        public int? UpdatedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public int CreatedBy { get; set; }
+        public DateTime UpdatedDate { get; set; }
+        public int UpdatedBy { get; set; }
     }
 }

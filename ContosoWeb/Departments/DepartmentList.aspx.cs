@@ -6,16 +6,19 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ContosoService;
 using Contoso.Models;
+using EFRepository;
+using EFservice;
 
 namespace ContosoWeb.Departments
 {
     public partial class DepartmentList : System.Web.UI.Page
     {
-        private DepartmentService deptService = new DepartmentService();
-
+        private ContosoService.DepartmentService deptService = new ContosoService.DepartmentService();
+        private EFservice.DepartmentService EFservice = new EFservice.DepartmentService();
         protected void Page_Load(object sender, EventArgs e)
         {
-            var departments = deptService.GetAllDepartments();
+           //var departments = deptService.GetAllDepartments();
+            var departments = EFservice.GetAllDepts();
             rptDepartmentList.DataSource = departments;
             rptDepartmentList.DataBind();
         }

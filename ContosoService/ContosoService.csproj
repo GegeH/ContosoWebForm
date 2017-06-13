@@ -52,6 +52,10 @@
       <Project>{a5573a5a-0fe3-49d4-8065-9c8ae3d3343f}</Project>
       <Name>ContosoRepository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EFRepository\EFRepository.csproj">
+      <Project>{ec00a51e-6b04-467c-a871-cb40d70ef7a9}</Project>
+      <Name>EFRepository</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

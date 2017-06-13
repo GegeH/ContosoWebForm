@@ -34,7 +34,6 @@ namespace ContosoWeb.Departments
                 connection.Open();
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(command);
           
-                
                 DataSet ds = new DataSet();
                 sqlAdapter.Fill(ds);
                 
@@ -47,7 +46,7 @@ namespace ContosoWeb.Departments
 
                 //txtInstrutorId.Text = department.InstructorId.ToString();
                 txtRowVer.Text = department.RowVersion.ToString();
-                txtUpdatedDate.Text = department.UpdatedDate.HasValue ? department.UpdatedDate.ToString("mm/dd/yyyy") : DBNull.Value.ToString();
+                txtUpdatedDate.Text = department.UpdatedDate.HasValue ? department.UpdatedDate.ToString() : DBNull.Value.ToString();
                 txtUpdatedBy.Text = department.UpdatedBy.ToString();
 
             }

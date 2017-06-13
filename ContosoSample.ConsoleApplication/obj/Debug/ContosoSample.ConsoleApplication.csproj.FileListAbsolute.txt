@@ -9,3 +9,13 @@ C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\ContosoSample
 C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\ContosoSample.ConsoleApplication\ContosoSample.ConsoleApplication\obj\Debug\ContosoSample.ConsoleApplication.csprojResolveAssemblyReference.cache
 C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\ContosoSample.ConsoleApplication\ContosoSample.ConsoleApplication\obj\Debug\ContosoSample.ConsoleApplication.exe
 C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\ContosoSample.ConsoleApplication\ContosoSample.ConsoleApplication\obj\Debug\ContosoSample.ConsoleApplication.pdb
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\ContosoSample.ConsoleApplication\bin\Debug\ContosoSample.ConsoleApplication.exe.config
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\ContosoSample.ConsoleApplication\bin\Debug\ContosoSample.ConsoleApplication.exe
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\ContosoSample.ConsoleApplication\bin\Debug\ContosoSample.ConsoleApplication.pdb
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\ContosoSample.ConsoleApplication\bin\Debug\ContosoModels.dll
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\ContosoSample.ConsoleApplication\bin\Debug\ContosoRepository.dll
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\ContosoSample.ConsoleApplication\bin\Debug\ContosoModels.pdb
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\ContosoSample.ConsoleApplication\bin\Debug\ContosoRepository.pdb
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\ContosoSample.ConsoleApplication\obj\Debug\ContosoSample.ConsoleApplication.csprojResolveAssemblyReference.cache
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\ContosoSample.ConsoleApplication\obj\Debug\ContosoSample.ConsoleApplication.exe
+C:\Users\Gege\Documents\Visual Studio 2015\Projects\DotNET_InClass\03WebForm\ContosoSample.ConsoleApplication\ContosoSample.ConsoleApplication\obj\Debug\ContosoSample.ConsoleApplication.pdb

@@ -12,9 +12,9 @@ namespace Contoso.Models
         public string Title { get; set; }
         public int Credits { get; set; }
         public int DepartmentId { get; set; }
-        public DateTime? CreatedDate { get; set; }
-        public int? CreatedBy { get; set; }
-        public DateTime? UpdatedDate { get; set; }
-        public int? UpdatedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public int CreatedBy { get; set; }
+        public DateTime UpdatedDate { get; set; }
+        public int UpdatedBy { get; set; }
     }
 }
