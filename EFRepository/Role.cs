@@ -14,6 +14,12 @@ namespace EFRepository
     
     public partial class Role
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Role()
+        {
+            this.People = new HashSet<Person>();
+        }
+    
         public int Id { get; set; }
         public string RoleName { get; set; }
         public string Description { get; set; }
@@ -21,5 +27,8 @@ namespace EFRepository
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Person> People { get; set; }
     }
 }

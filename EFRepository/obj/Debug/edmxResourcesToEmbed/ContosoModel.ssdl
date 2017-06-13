@@ -32,7 +32,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="CourseId" Type="int" />
     <Property Name="StudentId" Type="int" />
     <Property Name="Grade" Type="nvarchar" MaxLength="30" />
@@ -41,12 +41,6 @@
     <Property Name="UpdatedDate" Type="date" />
     <Property Name="UpdatedBy" Type="int" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'Contoso.dbo.InstructorCourses' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="InstructorCourses">
-          <Property Name="Instructor_Id" Type="int" />
-          <Property Name="Course_Id" Type="int" />
-        </EntityType>-->
   <EntityType Name="Instructors">
     <Key>
       <PropertyRef Name="Id" />
@@ -95,16 +89,20 @@ warning 6013: The table/view 'Contoso.dbo.InstructorCourses' does not have a pri
     <Property Name="FailedAttempts" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6013: The table/view 'Contoso.dbo.PersonRoles' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="PersonRoles">
-          <Property Name="Person_Id" Type="int" />
-          <Property Name="Role_Id" Type="int" />
-        </EntityType>-->
+warning 6002: The table/view 'Contoso.dbo.PersonRoles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="PersonRoles">
+    <Key>
+      <PropertyRef Name="Person_Id" />
+      <PropertyRef Name="Role_Id" />
+    </Key>
+    <Property Name="Person_Id" Type="int" Nullable="false" />
+    <Property Name="Role_Id" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Roles">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="RoleName" Type="nvarchar" MaxLength="60" />
     <Property Name="Description" Type="nvarchar(max)" />
     <Property Name="CreatedDate" Type="date" />
@@ -129,6 +127,114 @@ warning 6013: The table/view 'Contoso.dbo.PersonRoles' does not have a primary k
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
+  <Association Name="FK_Courses_Departments">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+    <End Role="Courses" Type="Self.Courses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Courses">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Departments_Instructors">
+    <End Role="Instructors" Type="Self.Instructors" Multiplicity="0..1" />
+    <End Role="Departments" Type="Self.Departments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instructors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Departments">
+        <PropertyRef Name="InstructorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Enrollments_Courses">
+    <End Role="Courses" Type="Self.Courses" Multiplicity="0..1" />
+    <End Role="Enrollments" Type="Self.Enrollments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollments">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Enrollments_Students">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <End Role="Enrollments" Type="Self.Enrollments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollments">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Instructors_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="Instructors" Type="Self.Instructors" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instructors">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfficeAssignments_Instructors">
+    <End Role="Instructors" Type="Self.Instructors" Multiplicity="1" />
+    <End Role="OfficeAssignments" Type="Self.OfficeAssignments" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Instructors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfficeAssignments">
+        <PropertyRef Name="InstructorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonRoles_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="PersonRoles" Type="Self.PersonRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonRoles">
+        <PropertyRef Name="Person_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonRoles_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="PersonRoles" Type="Self.PersonRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonRoles">
+        <PropertyRef Name="Role_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Students_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Function Name="DeleteDepartmentById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Id" Type="int" Mode="In" />
   </Function>
@@ -199,5 +305,47 @@ warning 6013: The table/view 'Contoso.dbo.PersonRoles' does not have a primary k
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PersonRoles" EntityType="Self.PersonRoles" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PersonRoles].[Person_Id] AS [Person_Id], 
+    [PersonRoles].[Role_Id] AS [Role_Id]
+    FROM [dbo].[PersonRoles] AS [PersonRoles]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Courses_Departments" Association="Self.FK_Courses_Departments">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Courses" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Departments_Instructors" Association="Self.FK_Departments_Instructors">
+      <End Role="Instructors" EntitySet="Instructors" />
+      <End Role="Departments" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Enrollments_Courses" Association="Self.FK_Enrollments_Courses">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="Enrollments" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Enrollments_Students" Association="Self.FK_Enrollments_Students">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Enrollments" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Instructors_People" Association="Self.FK_Instructors_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Instructors" EntitySet="Instructors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfficeAssignments_Instructors" Association="Self.FK_OfficeAssignments_Instructors">
+      <End Role="Instructors" EntitySet="Instructors" />
+      <End Role="OfficeAssignments" EntitySet="OfficeAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonRoles_People" Association="Self.FK_PersonRoles_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="PersonRoles" EntitySet="PersonRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonRoles_Roles" Association="Self.FK_PersonRoles_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="PersonRoles" EntitySet="PersonRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Students_People" Association="Self.FK_Students_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

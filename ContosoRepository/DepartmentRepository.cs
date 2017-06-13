@@ -113,10 +113,8 @@ namespace ContosoRepository
             command.Parameters.AddWithValue("@StartDate", dept.StartDate);
             command.Parameters.AddWithValue("@InstructorId", dept.InstructorId);
             command.Parameters.AddWithValue("@RowVersion", dept.RowVersion);
-            //command.Parameters.AddWithValue("@CreatedDate", dept.CreatedDate);
-            command.Parameters.AddWithValue("@CreatedDate", DBNull.Value);
-            //command.Parameters.AddWithValue("@CreatedBy", dept.CreatedBy);
-            command.Parameters.AddWithValue("@CreatedBy", DBNull.Value);
+            command.Parameters.AddWithValue("@CreatedDate", dept.CreatedDate);
+            command.Parameters.AddWithValue("@CreatedBy", dept.CreatedBy);
             try
             {
                 connection.Open();
@@ -166,10 +164,8 @@ namespace ContosoRepository
             command.Parameters.AddWithValue("@InstructorId", dept.InstructorId);
             command.Parameters.AddWithValue("@StartDate", dept.StartDate);
             command.Parameters.AddWithValue("@RowVersion", dept.RowVersion);
-            //command.Parameters.AddWithValue("@UpdatedDate", dept.UpdatedDate);
-            command.Parameters.AddWithValue("@UpdatedDate", DBNull.Value);
-            //command.Parameters.AddWithValue("@UpdatedBy", dept.UpdatedBy);
-            command.Parameters.AddWithValue("@UpdatedBy", DBNull.Value);
+            command.Parameters.AddWithValue("@UpdatedDate", dept.UpdatedDate);
+            command.Parameters.AddWithValue("@UpdatedBy", dept.UpdatedBy);
             try
             {
                 connection.Open();

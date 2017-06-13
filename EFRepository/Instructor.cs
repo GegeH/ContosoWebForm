@@ -14,8 +14,19 @@ namespace EFRepository
     
     public partial class Instructor
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Instructor()
+        {
+            this.Departments = new HashSet<Department>();
+        }
+    
         public int Id { get; set; }
         public Nullable<System.DateTime> HireDate { get; set; }
         public Nullable<decimal> Salary { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Department> Departments { get; set; }
+        public virtual Person Person { get; set; }
+        public virtual OfficeAssignment OfficeAssignment { get; set; }
     }
 }

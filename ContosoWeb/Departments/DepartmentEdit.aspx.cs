@@ -46,7 +46,7 @@ namespace ContosoWeb.Departments
 
                 //txtInstrutorId.Text = department.InstructorId.ToString();
                 txtRowVer.Text = department.RowVersion.ToString();
-                txtUpdatedDate.Text = department.UpdatedDate.HasValue ? department.UpdatedDate.ToString() : DBNull.Value.ToString();
+                txtUpdatedDate.Text = department.UpdatedDate.ToString("mm/dd/yyyy");
                 txtUpdatedBy.Text = department.UpdatedBy.ToString();
 
             }

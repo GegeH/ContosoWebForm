@@ -11,9 +11,17 @@
         <EntityTypeShape EntityType="ContosoModel.Instructor" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ContosoModel.OfficeAssignment" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ContosoModel.Person" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ContosoModel.Role" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ContosoModel.Role" Width="1.5" PointX="7.875" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ContosoModel.Student" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ContosoModel.sysdiagram" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="ContosoModel.FK_Courses_Departments" />
+        <AssociationConnector Association="ContosoModel.FK_Enrollments_Courses" />
+        <AssociationConnector Association="ContosoModel.FK_Departments_Instructors" />
+        <AssociationConnector Association="ContosoModel.FK_Enrollments_Students" />
+        <AssociationConnector Association="ContosoModel.FK_Instructors_People" />
+        <AssociationConnector Association="ContosoModel.FK_OfficeAssignments_Instructors" />
+        <AssociationConnector Association="ContosoModel.FK_Students_People" />
+        <AssociationConnector Association="ContosoModel.PersonRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

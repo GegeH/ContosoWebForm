@@ -22,5 +22,8 @@ namespace EFRepository
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
+    
+        public virtual Cours Cours { get; set; }
+        public virtual Student Student { get; set; }
     }
 }

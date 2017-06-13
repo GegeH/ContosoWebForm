@@ -14,6 +14,12 @@ namespace EFRepository
     
     public partial class Cours
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Cours()
+        {
+            this.Enrollments = new HashSet<Enrollment>();
+        }
+    
         public int Id { get; set; }
         public string Title { get; set; }
         public Nullable<int> Credits { get; set; }
@@ -22,5 +28,9 @@ namespace EFRepository
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
+    
+        public virtual Department Department { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Enrollment> Enrollments { get; set; }
     }
 }

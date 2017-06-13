@@ -12,6 +12,8 @@
     <Property Name="CreatedBy" Type="Int32" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
     <Property Name="UpdatedBy" Type="Int32" />
+    <NavigationProperty Name="Department" Relationship="ContosoModel.FK_Courses_Departments" FromRole="Cours" ToRole="Department" />
+    <NavigationProperty Name="Enrollments" Relationship="ContosoModel.FK_Enrollments_Courses" FromRole="Cours" ToRole="Enrollment" />
   </EntityType>
   <EntityType Name="Department">
     <Key>
@@ -27,6 +29,8 @@
     <Property Name="CreatedBy" Type="Int32" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
     <Property Name="UpdatedBy" Type="Int32" />
+    <NavigationProperty Name="Courses" Relationship="ContosoModel.FK_Courses_Departments" FromRole="Department" ToRole="Cours" />
+    <NavigationProperty Name="Instructor" Relationship="ContosoModel.FK_Departments_Instructors" FromRole="Department" ToRole="Instructor" />
   </EntityType>
   <EntityType Name="Enrollment">
     <Key>
@@ -40,6 +44,8 @@
     <Property Name="CreatedBy" Type="Int32" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
     <Property Name="UpdatedBy" Type="Int32" />
+    <NavigationProperty Name="Cours" Relationship="ContosoModel.FK_Enrollments_Courses" FromRole="Enrollment" ToRole="Cours" />
+    <NavigationProperty Name="Student" Relationship="ContosoModel.FK_Enrollments_Students" FromRole="Enrollment" ToRole="Student" />
   </EntityType>
   <EntityType Name="Instructor">
     <Key>
@@ -48,6 +54,9 @@
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="HireDate" Type="DateTime" Precision="0" />
     <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Departments" Relationship="ContosoModel.FK_Departments_Instructors" FromRole="Instructor" ToRole="Department" />
+    <NavigationProperty Name="Person" Relationship="ContosoModel.FK_Instructors_People" FromRole="Instructor" ToRole="Person" />
+    <NavigationProperty Name="OfficeAssignment" Relationship="ContosoModel.FK_OfficeAssignments_Instructors" FromRole="Instructor" ToRole="OfficeAssignment" />
   </EntityType>
   <EntityType Name="OfficeAssignment">
     <Key>
@@ -59,6 +68,7 @@
     <Property Name="CreatedBy" Type="Int32" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
     <Property Name="UpdatedBy" Type="Int32" />
+    <NavigationProperty Name="Instructor" Relationship="ContosoModel.FK_OfficeAssignments_Instructors" FromRole="OfficeAssignment" ToRole="Instructor" />
   </EntityType>
   <EntityType Name="Person">
     <Key>
@@ -87,6 +97,9 @@
     <Property Name="IsLocked" Type="Boolean" />
     <Property Name="LastLockedDateTime" Type="DateTime" Precision="0" />
     <Property Name="FailedAttempts" Type="Int32" />
+    <NavigationProperty Name="Instructor" Relationship="ContosoModel.FK_Instructors_People" FromRole="Person" ToRole="Instructor" />
+    <NavigationProperty Name="Student" Relationship="ContosoModel.FK_Students_People" FromRole="Person" ToRole="Student" />
+    <NavigationProperty Name="Roles" Relationship="ContosoModel.PersonRoles" FromRole="Person" ToRole="Role" />
   </EntityType>
   <EntityType Name="Role">
     <Key>
@@ -99,6 +112,7 @@
     <Property Name="CreatedBy" Type="Int32" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
     <Property Name="UpdatedBy" Type="Int32" />
+    <NavigationProperty Name="People" Relationship="ContosoModel.PersonRoles" FromRole="Role" ToRole="Person" />
   </EntityType>
   <EntityType Name="Student">
     <Key>
@@ -106,6 +120,8 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="EnrollmentDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Enrollments" Relationship="ContosoModel.FK_Enrollments_Students" FromRole="Student" ToRole="Enrollment" />
+    <NavigationProperty Name="Person" Relationship="ContosoModel.FK_Students_People" FromRole="Student" ToRole="Person" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -186,6 +202,38 @@
       <Parameter Name="UpdatedDate" Mode="In" Type="DateTime" />
       <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
     </FunctionImport>
+    <AssociationSet Name="FK_Courses_Departments" Association="ContosoModel.FK_Courses_Departments">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Cours" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Enrollments_Courses" Association="ContosoModel.FK_Enrollments_Courses">
+      <End Role="Cours" EntitySet="Courses" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Departments_Instructors" Association="ContosoModel.FK_Departments_Instructors">
+      <End Role="Instructor" EntitySet="Instructors" />
+      <End Role="Department" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Enrollments_Students" Association="ContosoModel.FK_Enrollments_Students">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Instructors_People" Association="ContosoModel.FK_Instructors_People">
+      <End Role="Person" EntitySet="People" />
+      <End Role="Instructor" EntitySet="Instructors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfficeAssignments_Instructors" Association="ContosoModel.FK_OfficeAssignments_Instructors">
+      <End Role="Instructor" EntitySet="Instructors" />
+      <End Role="OfficeAssignment" EntitySet="OfficeAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Students_People" Association="ContosoModel.FK_Students_People">
+      <End Role="Person" EntitySet="People" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="PersonRoles" Association="ContosoModel.PersonRoles">
+      <End Role="Person" EntitySet="People" />
+      <End Role="Role" EntitySet="Roles" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="GetAllDepartment_Result">
     <Property Type="Int32" Name="Id" Nullable="false" />
@@ -234,4 +282,92 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <Association Name="FK_Courses_Departments">
+    <End Type="ContosoModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="ContosoModel.Cours" Role="Cours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cours">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Enrollments_Courses">
+    <End Type="ContosoModel.Cours" Role="Cours" Multiplicity="0..1" />
+    <End Type="ContosoModel.Enrollment" Role="Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Departments_Instructors">
+    <End Type="ContosoModel.Instructor" Role="Instructor" Multiplicity="0..1" />
+    <End Type="ContosoModel.Department" Role="Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instructor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="InstructorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Enrollments_Students">
+    <End Type="ContosoModel.Student" Role="Student" Multiplicity="0..1" />
+    <End Type="ContosoModel.Enrollment" Role="Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Instructors_People">
+    <End Type="ContosoModel.Person" Role="Person" Multiplicity="1" />
+    <End Type="ContosoModel.Instructor" Role="Instructor" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instructor">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfficeAssignments_Instructors">
+    <End Type="ContosoModel.Instructor" Role="Instructor" Multiplicity="1" />
+    <End Type="ContosoModel.OfficeAssignment" Role="OfficeAssignment" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Instructor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OfficeAssignment">
+        <PropertyRef Name="InstructorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Students_People">
+    <End Type="ContosoModel.Person" Role="Person" Multiplicity="1" />
+    <End Type="ContosoModel.Student" Role="Student" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonRoles">
+    <End Type="ContosoModel.Person" Role="Person" Multiplicity="*" />
+    <End Type="ContosoModel.Role" Role="Role" Multiplicity="*" />
+  </Association>
 </Schema>

@@ -14,6 +14,12 @@ namespace EFRepository
     
     public partial class Person
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Person()
+        {
+            this.Roles = new HashSet<Role>();
+        }
+    
         public int Id { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
@@ -37,5 +43,10 @@ namespace EFRepository
         public Nullable<bool> IsLocked { get; set; }
         public Nullable<System.DateTime> LastLockedDateTime { get; set; }
         public Nullable<int> FailedAttempts { get; set; }
+    
+        public virtual Instructor Instructor { get; set; }
+        public virtual Student Student { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Role> Roles { get; set; }
     }
 }

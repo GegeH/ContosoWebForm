@@ -40,8 +40,8 @@ namespace ContosoWeb.Departments
                 StartDate = Convert.ToDateTime(txtDeptStartDate.Text),
                 InstructorId = Convert.ToInt32(ddlInstructor.Text),
                 RowVersion = 1,
-                CreatedDate = null,
-                CreatedBy = null,
+                CreatedDate = DateTime.Now,
+                CreatedBy = 1
             };
             new DepartmentService().SaveDepartment(department);
         }

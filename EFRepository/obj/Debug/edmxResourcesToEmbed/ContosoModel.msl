@@ -202,5 +202,13 @@
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ContosoModel.Store.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ContosoModel.Store.sp_upgraddiagrams" />
     <FunctionImportMapping FunctionImportName="UpdateDepartment" FunctionName="ContosoModel.Store.UpdateDepartment" />
+    <AssociationSetMapping Name="PersonRoles" TypeName="ContosoModel.PersonRoles" StoreEntitySet="PersonRoles">
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="Role_Id" />
+      </EndProperty>
+      <EndProperty Name="Person">
+        <ScalarProperty Name="Id" ColumnName="Person_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>
